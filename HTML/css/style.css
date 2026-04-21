@@ -3153,13 +3153,48 @@ body.ashade-about-page .ashade-about-intro .ashade-row-fullheight {
 
 .ashade-home-background {
 	opacity: 0.75;
+	overflow: hidden;
+	background: #000 url("../img/bgs/bg-home01.png") center center / cover no-repeat;
 	transition: left 0.5s;
+}
+.ashade-home-background__poster {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: opacity 0.45s ease;
+	animation: ashadeHeroPosterDrift 12s ease-in-out infinite alternate;
 }
 .ashade-home-background video {
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	z-index: 2;
+	width: 100vw;
+	height: 56.25vw;
+	min-width: 177.78vh;
+	min-height: 100vh;
+	border: 0;
+	opacity: 0;
+	transition: opacity 0.45s ease;
 	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+.ashade-home-background.is-loaded video {
+	opacity: 1;
+}
+.ashade-home-background.is-loaded .ashade-home-background__poster {
+	opacity: 0;
+}
+@keyframes ashadeHeroPosterDrift {
+	from {
+		transform: scale(1.02);
+	}
+	to {
+		transform: scale(1.08);
+	}
 }
 .ashade-home-template > #ashade-home-works,
 .ashade-home-template > #ashade-home-contacts {
