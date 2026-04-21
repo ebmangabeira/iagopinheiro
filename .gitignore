@@ -21,3 +21,5 @@ node_modules/
 !.env.example
 HTML/video/iago.mp4
 HTML/video/ensaio01.mp4
+docs/video/iago.mp4
+docs/video/ensaio01.mp4
