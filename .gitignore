@@ -1,0 +1,23 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Logs e temporarios
+*.log
+*.tmp
+*.bak
+
+# Dependencias locais
+node_modules/
+
+# Variaveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+HTML/video/iago.mp4
+HTML/video/ensaio01.mp4
