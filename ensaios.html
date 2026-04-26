@@ -71,6 +71,30 @@
                 right: -28px;
                 transform: translateY(-50%) rotate(45deg);
             }
+            body.page-ensaios
+                .ashade-back-wrap
+                .ashade-back.is-to-home {
+                text-decoration: none;
+            }
+            body.page-ensaios
+                .ashade-back-wrap
+                .ashade-back.is-to-home
+                span {
+                white-space: nowrap;
+            }
+            body.page-ensaios
+                .ashade-back-wrap
+                .ashade-back.is-to-home
+                span:first-child {
+                letter-spacing: 0.08em;
+            }
+            body.page-ensaios
+                .ashade-back-wrap
+                .ashade-back.is-to-home
+                span:last-child {
+                font-size: clamp(20px, 2.6vw, 42px);
+                line-height: 1.04;
+            }
         </style>
         <!-- &Iacute;cone -->
         <link rel="icon" href="img/favicon.png" sizes="32x32" />
@@ -350,6 +374,16 @@
                 </div>
             </div>
         </footer>
+        <div class="ashade-back-wrap ashade-back-home-wrap">
+            <a
+                href="index.html"
+                class="ashade-back is-to-home"
+                aria-label="Retornar para a p&aacute;gina inicial"
+            >
+                <span>Retornar</span>
+                <span>In&iacute;cio</span>
+            </a>
+        </div>
         <!-- Barra Lateral -->
         <aside id="ashade-aside">
             <a href="#" class="ashade-aside-close">Fechar painel</a>

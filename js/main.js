@@ -667,7 +667,6 @@
                                   '<div id="ashade-legal-modal" class="ashade-legal-modal" aria-hidden="true">',
                                   '  <div class="ashade-legal-modal__overlay" data-legal-close></div>',
                                   '  <div class="ashade-legal-modal__panel">',
-                                  '    <a href="#" class="ashade-aside-close ashade-legal-modal__close" data-legal-close>Fechar aviso</a>',
                                   '    <div class="ashade-legal-modal__inner">',
                                   '      <div class="ashade-aside-content">',
                                   '        <div class="ashade-widget ashade-legal-modal__intro">',
@@ -727,7 +726,7 @@
                             .attr("aria-hidden", "false"),
                         s.addClass("ashade-legal-open"),
                         this.$modal
-                            .find(".ashade-legal-modal__close")
+                            .find(".ashade-legal-modal__actions [data-legal-close]")
                             .trigger("focus"));
                 },
                 close: function () {
@@ -2129,6 +2128,9 @@
                                       }));
                               }
                           })()
+                        : i.hasClass("is-to-home")
+                          ? (a.stopImmediatePropagation(),
+                            X(i.attr("href") || "index.html"))
                         : i.hasClass("is-to-top") &&
                           (i.addClass("in-action"),
                           g
