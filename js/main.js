@@ -138,7 +138,7 @@
                               },
                           ),
                           a.bindInteraction(
-                              ".ashade-legal-modal__inner, .ashade-comment-modal__inner",
+                              ".ashade-legal-modal__inner",
                               function () {
                                   a.$el.addClass("int-grab-v");
                               },
@@ -419,6 +419,19 @@
                             o,
                         );
                 },
+                softlyRevealCurrentItem: function (a) {
+                    var o = t(a && a.currItem && a.currItem.container);
+                    o.length &&
+                        (t(".pswp__item").removeClass(
+                            "ashade-formatura-current-enter",
+                        ),
+                        o.removeClass("ashade-formatura-current-enter"),
+                        e.requestAnimationFrame(function () {
+                            e.requestAnimationFrame(function () {
+                                o.addClass("ashade-formatura-current-enter");
+                            });
+                        }));
+                },
                 createVideoItem: function (e, a) {
                     var t = e.find("img:first"),
                         o = (e.attr("data-video-size") || "").split("x"),
@@ -535,6 +548,10 @@
                         r = Math.max(0, n),
                         l = s[r] || {},
                         c = l.thumbEl || t.find("img").get(0) || t.get(0),
+                        u =
+                            a.body &&
+                            a.body.classList.contains("page-formatura"),
+                        p = r,
                         d = new e.PhotoSwipe(
                             a.querySelector(".pswp"),
                             e.PhotoSwipeUI_Default,
@@ -543,17 +560,25 @@
                                 index: r,
                                 bgOpacity: 0.85,
                                 showHideOpacity: !0,
+                                easing: u
+                                    ? "cubic-bezier(0.22, 1, 0.36, 1)"
+                                    : void 0,
                                 mainClass:
                                     "pswp--ashade-lightbox" +
                                     (l.useSoftOpen
                                         ? " pswp--ashade-lightbox--soft-open"
-                                        : ""),
-                                showAnimationDuration: l.useSoftOpen
+                                        : "") +
+                                    (u ? " pswp--formatura-lightbox" : ""),
+                                showAnimationDuration: u
                                     ? 420
-                                    : 333,
-                                hideAnimationDuration: l.useSoftOpen
-                                    ? 420
-                                    : 333,
+                                    : l.useSoftOpen
+                                      ? 420
+                                      : 333,
+                                hideAnimationDuration: u
+                                    ? 360
+                                    : l.useSoftOpen
+                                      ? 420
+                                      : 333,
                                 getThumbBoundsFn: function (e) {
                                     var a = s[e] || {},
                                         t = a.thumbEl || c;
@@ -564,7 +589,14 @@
                             },
                         );
                     (d.listen("afterChange", function () {
-                        (y.syncLightboxMode(d), y.playCurrentVideo(d));
+                        var e = d.getCurrentIndex
+                            ? d.getCurrentIndex()
+                            : s.indexOf(d.currItem);
+                        (y.syncLightboxMode(d),
+                            u &&
+                                e !== p &&
+                                (y.softlyRevealCurrentItem(d), (p = e)),
+                            y.playCurrentVideo(d));
                     }),
                         d.listen("beforeChange", y.pauseVideos),
                         d.listen("close", y.pauseVideos),
@@ -578,65 +610,77 @@
                         eyebrow: "Resumo essencial",
                         title: "Termos de Uso",
                         intro: [
-                            "Este portf&oacute;lio apresenta ensaios, servi&ccedil;os e canais de contato de forma informativa e comercial.",
-                            "Ao navegar pelo site, o visitante utiliza esse conte&uacute;do para conhecer o trabalho, solicitar atendimento e acompanhar atualiza&ccedil;&otilde;es do est&uacute;dio.",
+                            "Este site apresenta o portf&oacute;lio, os servi&ccedil;os e os canais de contato do Iago Pinheiro Est&uacute;dio.",
+                            "Ao navegar por aqui, o visitante pode conhecer o trabalho, ver galerias e enviar solicita&ccedil;&otilde;es de atendimento.",
                         ],
                         widgets: [
                             {
                                 eyebrow: "Uso permitido",
-                                title: "Navegação",
+                                title: "Navega&ccedil;&atilde;o",
                                 content:
-                                    "<p>O acesso ao portf&oacute;lio deve ocorrer para consulta de galerias, leitura de informa&ccedil;&otilde;es e envio de mensagens com dados pr&oacute;prios, corretos e leg&iacute;timos.</p>",
+                                    "<p>O conte&uacute;do do site deve ser usado para consulta de informa&ccedil;&otilde;es, visualiza&ccedil;&atilde;o do portf&oacute;lio e envio de mensagens com dados pr&oacute;prios, corretos e leg&iacute;timos.</p>",
                             },
                             {
-                                eyebrow: "Conteúdo autoral",
+                                eyebrow: "Conte&uacute;do autoral",
                                 title: "Fotos e identidade",
                                 content:
-                                    "<p>Imagens, v&iacute;deos, textos, marcas e demais elementos visuais permanecem protegidos. C&oacute;pia, republica&ccedil;&atilde;o, distribui&ccedil;&atilde;o ou uso comercial dependem de autoriza&ccedil;&atilde;o pr&eacute;via.</p>",
+                                    "<p>Fotos, v&iacute;deos, textos, marcas e demais elementos visuais pertencem aos seus respectivos titulares. C&oacute;pia, republica&ccedil;&atilde;o, edi&ccedil;&atilde;o, distribui&ccedil;&atilde;o ou uso comercial dependem de autoriza&ccedil;&atilde;o pr&eacute;via.</p>",
                             },
                             {
                                 eyebrow: "Atendimento",
-                                title: "Solicitações",
+                                title: "Solicita&ccedil;&otilde;es",
                                 content:
-                                    "<p>O envio do formul&aacute;rio ou de contatos pelo site n&atilde;o confirma agenda, contrato ou reserva autom&aacute;tica. Links externos e perfis sociais seguem pol&iacute;ticas pr&oacute;prias.</p>",
+                                    "<p>O envio de formul&aacute;rio ou mensagem pelo site n&atilde;o confirma agenda, contrato, or&ccedil;amento ou reserva autom&aacute;tica. Esses pontos dependem de retorno, alinhamento e confirma&ccedil;&atilde;o direta com o est&uacute;dio.</p>",
+                            },
+                            {
+                                eyebrow: "Servi&ccedil;os externos",
+                                title: "Links e incorpora&ccedil;&otilde;es",
+                                content:
+                                    "<p>O site pode exibir v&iacute;deos incorporados e links para servi&ccedil;os ou perfis externos. Ao acessar esses recursos, tamb&eacute;m podem valer os termos e pol&iacute;ticas das respectivas plataformas.</p>",
                             },
                         ],
-                        note: "Versão resumida para apoio ao uso do site. O texto pode ser atualizado quando novas funcionalidades forem ativadas.",
+                        note: "Vers&atilde;o resumida para orientar o uso do site. O texto pode ser atualizado se novas funcionalidades forem adicionadas.",
                     },
                     privacy: {
                         eyebrow: "Resumo LGPD",
-                        title: "Política de Privacidade",
+                        title: "Pol&iacute;tica de Privacidade",
                         intro: [
-                            "Este aviso resumido explica como o portf&oacute;lio pode tratar dados de contato e dados de navega&ccedil;&atilde;o.",
-                            "Ele j&aacute; considera o formul&aacute;rio atual do site e o uso futuro de Google Analytics e Meta Pixel.",
+                            "Este aviso explica, de forma simples, como o site trata dados pessoais enviados pelo visitante.",
+                            "O site n&atilde;o utiliza Google Analytics, Meta Pixel, remarketing ou cookies publicit&aacute;rios.",
                         ],
                         widgets: [
                             {
                                 eyebrow: "Dados coletados",
-                                title: "Contato e navegação",
+                                title: "Formul&aacute;rio de contato",
                                 content:
-                                    "<p>Podem ser tratados nome, e-mail, telefone e mensagem enviados voluntariamente pelo formul&aacute;rio.</p><p>Quando ferramentas de medi&ccedil;&atilde;o forem ativadas, o site tamb&eacute;m pode tratar IP, navegador, dispositivo, p&aacute;ginas visitadas e intera&ccedil;&otilde;es de navega&ccedil;&atilde;o.</p>",
+                                    "<p>Quando o visitante envia uma mensagem pelo formul&aacute;rio, podem ser tratados os dados informados voluntariamente, como nome, e-mail, telefone e conte&uacute;do da mensagem.</p><p>Esses dados s&atilde;o usados apenas para responder ao contato, organizar o atendimento e dar continuidade a solicita&ccedil;&otilde;es comerciais.</p>",
                             },
                             {
                                 eyebrow: "Finalidades",
-                                title: "Atendimento e análise",
+                                title: "Uso das informa&ccedil;&otilde;es",
                                 content:
-                                    "<p>Os dados s&atilde;o usados para responder pedidos de contato, organizar atendimento comercial, medir acessos ao site e entender o desempenho de p&aacute;ginas e campanhas.</p>",
+                                    "<p>As informa&ccedil;&otilde;es podem ser usadas para responder d&uacute;vidas, enviar retornos sobre ensaios e servi&ccedil;os, preparar propostas e manter o hist&oacute;rico necess&aacute;rio do atendimento.</p><p>O site n&atilde;o usa esses dados para publicidade comportamental, remarketing ou cria&ccedil;&atilde;o de audi&ecirc;ncias em plataformas de an&uacute;ncios.</p>",
                             },
                             {
-                                eyebrow: "Ferramentas terceiras",
-                                title: "Google e Meta",
+                                eyebrow: "Servi&ccedil;os externos",
+                                title: "Fontes e v&iacute;deos",
                                 content:
-                                    "<p>Com Google Analytics e Meta Pixel ativos, parte dos dados t&eacute;cnicos de navega&ccedil;&atilde;o pode ser tratada por Google e Meta para an&aacute;lise, mensura&ccedil;&atilde;o e publicidade, conforme a configura&ccedil;&atilde;o adotada no projeto.</p>",
+                                    "<p>O site pode carregar fontes do Google Fonts e v&iacute;deos incorporados do Vimeo. Esses servi&ccedil;os podem receber dados t&eacute;cnicos necess&aacute;rios para exibir o conte&uacute;do, como endere&ccedil;o IP, navegador e informa&ccedil;&otilde;es da requisi&ccedil;&atilde;o.</p><p>Quando poss&iacute;vel, os v&iacute;deos s&atilde;o configurados em modo de maior privacidade, sem finalidade de an&uacute;ncios ou remarketing por este site.</p>",
                             },
                             {
-                                eyebrow: "Cookies e direitos",
-                                title: "Consentimento",
+                                eyebrow: "Cookies",
+                                title: "Sem rastreamento publicit&aacute;rio",
                                 content:
-                                    "<p>Cookies n&atilde;o essenciais devem depender de consentimento quando o banner de prefer&ecirc;ncias for implementado. O visitante pode solicitar informa&ccedil;&otilde;es, corre&ccedil;&atilde;o, exclus&atilde;o ou revoga&ccedil;&atilde;o de consentimento pelos canais de contato exibidos no portf&oacute;lio.</p>",
+                                    "<p>Este site n&atilde;o utiliza cookies n&atilde;o essenciais para an&aacute;lise, publicidade, Meta Pixel, Google Analytics ou remarketing. Por isso, n&atilde;o exibe banner de consentimento de cookies.</p><p>Servi&ccedil;os externos incorporados podem usar recursos t&eacute;cnicos essenciais para funcionar com seguran&ccedil;a.</p>",
+                            },
+                            {
+                                eyebrow: "Direitos",
+                                title: "Solicita&ccedil;&otilde;es do titular",
+                                content:
+                                    "<p>O visitante pode solicitar confirma&ccedil;&atilde;o de tratamento, acesso, corre&ccedil;&atilde;o, atualiza&ccedil;&atilde;o ou exclus&atilde;o de dados pessoais pelos canais de contato exibidos no site.</p><p>Alguns dados podem ser mantidos pelo tempo necess&aacute;rio para cumprir obriga&ccedil;&otilde;es legais, resolver solicita&ccedil;&otilde;es ou proteger direitos do est&uacute;dio e do visitante.</p>",
                             },
                         ],
-                        note: "Quando Google Analytics e Meta Pixel forem publicados, revise este resumo para refletir a operação real do site e o banner de cookies.",
+                        note: "Se no futuro forem adicionados Google Analytics, Meta Pixel, remarketing ou cookies n&atilde;o essenciais, esta pol&iacute;tica deve ser revisada e um banner de consentimento deve ser implementado.",
                     },
                 },
                 $modal: t(),
@@ -736,260 +780,6 @@
                             .removeClass("is-active")
                             .attr("aria-hidden", "true"),
                         s.removeClass("ashade-legal-open"),
-                        this.lastFocusedElement &&
-                            "function" ==
-                                typeof this.lastFocusedElement.focus &&
-                            this.lastFocusedElement.focus());
-                },
-            },
-            _ = {
-                content: {
-                    planejamento: {
-                        eyebrow: "Comentários do blog",
-                        title: "Planejamento",
-                        intro: [
-                            "Abra este espaço para comentar sobre organização, referências e tudo o que ajuda a chegar ao ensaio com mais clareza.",
-                        ],
-                        description:
-                            "Tema ideal para quem ainda está alinhando objetivo, disponibilidade e direção visual antes de marcar a sessão.",
-                        focus: [
-                            "Objetivo do ensaio",
-                            "Referências visuais",
-                            "Organização da agenda",
-                        ],
-                        placeholder:
-                            "Escreva aqui o que você quer comentar sobre planejamento, referências ou preparação do ensaio.",
-                        preview: [
-                            {
-                                author: "Mariana",
-                                meta: "Dúvida - hoje",
-                                message:
-                                    "Estou montando minhas referências antes do primeiro contato e esse tipo de espaço ajuda muito a visualizar como a conversa pode fluir.",
-                            },
-                            {
-                                author: "Felipe",
-                                meta: "Experiência - ontem",
-                                message:
-                                    "Quando cheguei com objetivo e clima mais claros, o atendimento ficou muito mais objetivo. Gostei de ver isso refletido no layout.",
-                            },
-                        ],
-                    },
-                    look: {
-                        eyebrow: "Comentários do blog",
-                        title: "Look e estilo",
-                        intro: [
-                            "Aqui o visitante pode comentar sobre roupas, combinações e detalhes de produção que influenciam diretamente a leitura visual do ensaio.",
-                        ],
-                        description:
-                            "Tema pensado para dúvidas sobre cores, trocas extras, caimento e escolhas que deixam o resultado mais elegante e coerente.",
-                        focus: [
-                            "Roupas e caimento",
-                            "Cores e combinações",
-                            "Troca extra",
-                        ],
-                        placeholder:
-                            "Escreva aqui sua dúvida ou opinião sobre roupas, estilo, cores e combinações para o ensaio.",
-                        preview: [
-                            {
-                                author: "Camila",
-                                meta: "Dúvida - hoje",
-                                message:
-                                    "Queria saber se vale levar uma terceira troca quando o ensaio é mais curto. O modal deixa essa conversa mais natural.",
-                            },
-                            {
-                                author: "Rafaela",
-                                meta: "Sugestão - ontem",
-                                message:
-                                    "Seria interessante ter exemplos de paleta aqui. Mesmo assim, o layout já mostra bem como essa interação pode acontecer.",
-                            },
-                        ],
-                    },
-                    direcao: {
-                        eyebrow: "Comentários do blog",
-                        title: "Direção leve",
-                        intro: [
-                            "Este espaço foi pensado para quem quer falar sobre naturalidade, ritmo da sessão e segurança na frente da câmera.",
-                        ],
-                        description:
-                            "Tema voltado para perguntas sobre poses, condução acolhedora, movimentação durante o ensaio e receios comuns de quem ainda não tem costume com câmera.",
-                        focus: [
-                            "Poses naturais",
-                            "Ritmo da sessão",
-                            "Segurança na câmera",
-                        ],
-                        placeholder:
-                            "Escreva aqui sua dúvida ou comentário sobre direção leve, poses e naturalidade durante o ensaio.",
-                        preview: [
-                            {
-                                author: "Laura",
-                                meta: "Dúvida - hoje",
-                                message:
-                                    "Tenho receio de travar na frente da câmera. Gostei porque o modal ficou contextualizado com o tema e com o visual do site.",
-                            },
-                            {
-                                author: "Bruno",
-                                meta: "Experiência - ontem",
-                                message:
-                                    "Quando a direção é leve, a conversa ajuda muito mais do que pose pronta. Esse espaço ficou bom para comentar esse tipo de percepção.",
-                            },
-                        ],
-                    },
-                    entrega: {
-                        eyebrow: "Comentários do blog",
-                        title: "Uso das fotos",
-                        intro: [
-                            "Use este espaço para comentar sobre seleção, aplicação das imagens e aproveitamento da galeria depois da entrega.",
-                        ],
-                        description:
-                            "Tema focado em dúvidas sobre galeria final, seleção de imagens, uso profissional e continuidade visual após o ensaio.",
-                        focus: [
-                            "Seleção final",
-                            "Redes sociais",
-                            "Uso profissional",
-                        ],
-                        placeholder:
-                            "Escreva aqui sua mensagem sobre seleção final, uso das fotos e aproveitamento da galeria entregue.",
-                        preview: [
-                            {
-                                author: "Renato",
-                                meta: "Sugestão - hoje",
-                                message:
-                                    "Seria ótimo ver mais conversas sobre como escolher as imagens principais depois da entrega. O modal já mostra bem esse cenário.",
-                            },
-                            {
-                                author: "Juliana",
-                                meta: "Experiência - ontem",
-                                message:
-                                    "Eu usaria um espaço assim para perguntar como separar fotos para rede social e material profissional. Ficou com cara de recurso real do site.",
-                            },
-                        ],
-                    },
-                },
-                $modal: t("#ashade-comment-modal"),
-                lastFocusedElement: null,
-                init: function () {
-                    this.$modal.length &&
-                        (i.on(
-                            "click.mainCommentModal",
-                            "[data-comment-open]",
-                            function (e) {
-                                (e.preventDefault(),
-                                    _.open(t(this).data("commentOpen")));
-                            },
-                        ),
-                        i.on(
-                            "click.mainCommentModal",
-                            "[data-comment-close]",
-                            function (e) {
-                                (e.preventDefault(), _.close());
-                            },
-                        ),
-                        this.$modal
-                            .find("#ashade-comment-modal-form")
-                            .on("submit", function (e) {
-                                (e.preventDefault(),
-                                    _.$modal
-                                        .find("#ashade-comment-modal-response")
-                                        .addClass("is-success")
-                                        .text(
-                                            "Layout pronto para o backend: aqui o comentário poderá ser enviado e listado quando você conectar o servidor.",
-                                        ));
-                            }));
-                },
-                buildFocusTags: function (e) {
-                    return e
-                        .map(function (e) {
-                            return (
-                                '<span class="ashade-comment-modal__tag">' +
-                                T(e) +
-                                "</span>"
-                            );
-                        })
-                        .join("");
-                },
-                buildPreview: function (e) {
-                    return e
-                        .map(function (e) {
-                            return [
-                                '<div class="ashade-comment-modal__preview-item">',
-                                '  <div class="ashade-comment-modal__preview-avatar" aria-hidden="true">' +
-                                    T(
-                                        e.author
-                                            ? e.author.charAt(0).toUpperCase()
-                                            : "?",
-                                    ) +
-                                    "</div>",
-                                '  <div class="ashade-comment-modal__preview-body">',
-                                '    <div class="ashade-comment-modal__preview-head">',
-                                '      <span class="ashade-comment-modal__preview-author">' +
-                                    T(e.author) +
-                                    "</span>",
-                                '      <span class="ashade-comment-modal__preview-meta">' +
-                                    T(e.meta) +
-                                    "</span>",
-                                "    </div>",
-                                "    <p>" + T(e.message) + "</p>",
-                                "  </div>",
-                                "</div>",
-                            ].join("");
-                        })
-                        .join("");
-                },
-                open: function (e) {
-                    var t = this.content[e] || this.content.planejamento;
-                    this.$modal.length &&
-                        ((this.lastFocusedElement = a.activeElement),
-                        this.$modal
-                            .find("#ashade-comment-modal-title")
-                            .html("<span>" + t.eyebrow + "</span>" + t.title),
-                        this.$modal.find("#ashade-comment-modal-intro").html(
-                            t.intro
-                                .map(function (e) {
-                                    return "<p>" + T(e) + "</p>";
-                                })
-                                .join(""),
-                        ),
-                        this.$modal
-                            .find("#ashade-comment-modal-theme")
-                            .text(t.title),
-                        this.$modal
-                            .find("#ashade-comment-modal-description")
-                            .text(t.description),
-                        this.$modal
-                            .find("#ashade-comment-modal-focus-list")
-                            .html(this.buildFocusTags(t.focus)),
-                        this.$modal
-                            .find("#ashade-comment-modal-topic-input")
-                            .val(t.title),
-                        this.$modal
-                            .find("#ashade-comment-modal-topic-display")
-                            .text(t.title),
-                        this.$modal
-                            .find("#ashade-comment-modal-message")
-                            .attr("placeholder", t.placeholder)
-                            .val(""),
-                        this.$modal
-                            .find("#ashade-comment-modal-response")
-                            .removeClass("is-success")
-                            .text(""),
-                        this.$modal
-                            .find("#ashade-comment-modal-preview")
-                            .html(this.buildPreview(t.preview)),
-                        this.$modal
-                            .addClass("is-active")
-                            .attr("aria-hidden", "false"),
-                        s.addClass("ashade-comment-open"),
-                        this.$modal
-                            .find("#ashade-comment-modal-name")
-                            .trigger("focus"));
-                },
-                close: function () {
-                    this.$modal.length &&
-                        this.$modal.hasClass("is-active") &&
-                        (this.$modal
-                            .removeClass("is-active")
-                            .attr("aria-hidden", "true"),
-                        s.removeClass("ashade-comment-open"),
                         this.lastFocusedElement &&
                             "function" ==
                                 typeof this.lastFocusedElement.focus &&
@@ -1348,7 +1138,6 @@
                     $.init(),
                     b.init(),
                     C.init(),
-                    _.init(),
                     y.init(),
                     w.init(),
                     B(),
@@ -1533,7 +1322,7 @@
                 "aria-label",
                 "Fechar painel lateral",
             ),
-            t("[data-legal-open], [data-comment-open]").attr(
+            t("[data-legal-open]").attr(
                 "aria-haspopup",
                 "dialog",
             ),
@@ -2168,7 +1957,6 @@
                         a.hasAttribute("download") ||
                         a.classList.contains("ashade-lightbox-link") ||
                         a.hasAttribute("data-legal-open") ||
-                        a.hasAttribute("data-comment-open") ||
                         /^(mailto:|tel:|javascript:)/i.test(i) ||
                         (o = new e.URL(i, e.location.href)).origin !==
                             e.location.origin ||
@@ -2210,71 +1998,7 @@
                 }),
             i.on("keyup.mainGlobal", function (e) {
                 ("Escape" !== e.key && 27 !== e.keyCode) ||
-                    (_.close(), C.close(), O(), H(!0));
+                    (C.close(), O(), H(!0));
             }));
     }
 })(window, document, window.jQuery);
-window.ASHADE_BLOG_COMMENTS_DATA = {
-    comments: [
-        {
-            id: "seed-1",
-            author: "Mariana",
-            topic: "planejamento",
-            intent: "duvida",
-            message:
-                "Estou começando a organizar o ensaio e queria entender o quanto vale levar referências antes do primeiro contato. Ter uma orientação assim no blog ajuda muito.",
-            likes: 4,
-            createdAt: "2026-04-18T09:30:00.000Z",
-            replyToAuthor: "",
-            replyToTopic: "",
-        },
-        {
-            id: "seed-2",
-            author: "Felipe",
-            topic: "look",
-            intent: "experiencia",
-            message:
-                "Separar uma troca extra fez diferença no meu ensaio. Acho ótimo quando o blog já orienta isso de forma simples, porque evita ansiedade no dia.",
-            likes: 7,
-            createdAt: "2026-04-18T13:10:00.000Z",
-            replyToAuthor: "",
-            replyToTopic: "",
-        },
-        {
-            id: "seed-3",
-            author: "Camila",
-            topic: "direcao",
-            intent: "duvida",
-            message:
-                "Tenho receio de ficar artificial nas fotos. Ver esse tipo de explicação sobre direção leve me deixa mais segura, mas queria saber quanto tempo leva até a pessoa relaxar durante a sessão.",
-            likes: 3,
-            createdAt: "2026-04-19T08:50:00.000Z",
-            replyToAuthor: "",
-            replyToTopic: "",
-        },
-        {
-            id: "seed-4",
-            author: "Laura",
-            topic: "planejamento",
-            intent: "experiencia",
-            message:
-                "Respondendo à Mariana: no meu caso ajudou muito chegar com poucas referências, mas bem alinhadas. O atendimento ficou mais claro e o ensaio fez mais sentido.",
-            likes: 5,
-            createdAt: "2026-04-19T11:15:00.000Z",
-            replyToAuthor: "Mariana",
-            replyToTopic: "planejamento",
-        },
-        {
-            id: "seed-5",
-            author: "Renato",
-            topic: "entrega",
-            intent: "sugestao",
-            message:
-                "Seria legal ter mais conteúdo sobre seleção final das fotos e uso em portfólio profissional. Esse tema tem bastante valor para quem trabalha com imagem pessoal.",
-            likes: 2,
-            createdAt: "2026-04-19T16:25:00.000Z",
-            replyToAuthor: "",
-            replyToTopic: "",
-        },
-    ],
-};
