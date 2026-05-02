@@ -7,14 +7,25 @@
             content="width=device-width, initial-scale=1.0"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Contato | Iago Pinheiro Est&uacute;dio</title>
+        <title>Contato | Iago Pinheiro Estúdio</title>
+        <meta
+            name="description"
+            content="Entre em contato com Iago Pinheiro Estúdio para agendar ensaios, eventos, formaturas e projetos fotográficos."
+        />
+        <meta name="theme-color" content="#050505" />
+        <link rel="canonical" href="https://iagopinheiro.com/contato.html" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css?family=Montserrat%3A500%2C700%7CRoboto+Condensed:700%7CRoboto%3A700&display=swap"
             rel="stylesheet"
         />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="css/style.css"
+            fetchpriority="high"
+        />
         <link rel="icon" href="img/favicon.png" sizes="32x32" />
     </head>
     <body class="page-contato has-spotlight ashade-smooth-scroll">
@@ -27,17 +38,18 @@
                     >
                         <img
                             src="img/iago-logo.png"
-                            alt="Logo"
+                            alt="Iago Pinheiro Estúdio"
                             width="694"
                             height="118"
+                            decoding="async"
                         />
                     </a>
                 </div>
                 <div class="ashade-nav-block">
-                    <nav class="ashade-nav">
+                    <nav class="ashade-nav" aria-label="Menu principal">
                         <ul class="main-menu">
                             <li class="menu-item-has-children">
-                                <a href="index.html">In&iacute;cio</a>
+                                <a href="index.html">Início</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="sobre.html">Sobre</a>
@@ -51,9 +63,9 @@
                             <li class="menu-item-has-children">
                                 <a href="depoimentos.html">Depoimentos</a>
                             </li>
-                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="contato.html" aria-current="page">Contato</a></li>
                             <li>
-                                <a href="#" class="ashade-aside-toggler">
+                                <a href="#" class="ashade-aside-toggler" aria-label="Abrir painel lateral">
                                     <span
                                         class="ashade-aside-toggler__icon01"
                                     ></span>
@@ -83,7 +95,7 @@
                         <div class="ashade-row">
                             <div class="ashade-col col-12">
                                 <p class="ashade-intro">
-                                    Um espa&ccedil;o direto para conversarmos
+                                    Um espaço direto para conversarmos
                                     sobre o seu ensaio, evento ou projeto.
                                 </p>
                             </div>
@@ -95,7 +107,7 @@
                                 <div class="ashade-contact-details">
                                     <h4 class="ashade-contact-details__title">
                                         <span>Contato direto</span>
-                                        Informa&ccedil;&otilde;es de contato
+                                        Informações de contato
                                     </h4>
                                     <ul class="ashade-contact-details__list">
                                         <li>
@@ -142,6 +154,7 @@
                                 <form
                                     action="mail.php"
                                     method="post"
+                                    accept-charset="UTF-8"
                                     class="ashade-contact-form"
                                 >
                                     <div class="ashade-row ashade-small-gap">
@@ -151,6 +164,8 @@
                                                 id="name"
                                                 name="name"
                                                 placeholder="Nome"
+                                                autocomplete="name"
+                                                aria-label="Nome"
                                                 required
                                             />
                                         </div>
@@ -160,6 +175,9 @@
                                                 id="email"
                                                 name="email"
                                                 placeholder="E-mail"
+                                                autocomplete="email"
+                                                inputmode="email"
+                                                aria-label="E-mail"
                                                 required
                                             />
                                         </div>
@@ -169,6 +187,9 @@
                                                 id="phone"
                                                 name="phone"
                                                 placeholder="Telefone"
+                                                autocomplete="tel"
+                                                inputmode="tel"
+                                                aria-label="Telefone"
                                                 required
                                             />
                                         </div>
@@ -177,12 +198,12 @@
                                         name="message"
                                         id="message"
                                         placeholder="Mensagem"
+                                        autocomplete="off"
+                                        aria-label="Mensagem"
                                         required
                                     ></textarea>
                                     <div class="ashade-contact-form__footer">
-                                        <div
-                                            class="ashade-contact-form__response"
-                                        ></div>
+                                        <div class="ashade-contact-form__response" aria-live="polite" aria-atomic="true"></div>
                                         <div
                                             class="ashade-contact-form__submit"
                                         >
@@ -228,14 +249,8 @@
                 </footer>
             </div>
         </main>
-        <div class="ashade-to-top-wrap ashade-back-wrap">
-            <div class="ashade-back is-to-top">
-                <span>Voltar ao</span>
-                <span>Topo</span>
-            </div>
-        </div>
         <aside id="ashade-aside">
-            <a href="#" class="ashade-aside-close">Fechar painel</a>
+            <a href="#" class="ashade-aside-close" aria-label="Fechar painel">Fechar painel</a>
             <div class="ashade-aside-inner">
                 <div class="ashade-aside-content">
                     <div class="ashade-widget ashade-widget--about">
@@ -243,18 +258,20 @@
                             <img
                                 src="img/general/iago-avatar.webp"
                                 alt="Iago Pinheiro"
+                                width="1080"
+                                height="1080"
                                 loading="lazy"
                                 decoding="async"
                             />
                             <h5>
-                                <span>Est&uacute;dio</span>
+                                <span>Estúdio</span>
                                 Iago Pinheiro
                             </h5>
                         </div>
                         <p>
-                            Registros aut&ecirc;nticos, dire&ccedil;&atilde;o
-                            leve e um olhar sens&iacute;vel para transformar
-                            momentos em mem&oacute;ria.
+                            Registros autênticos, direção
+                            leve e um olhar sensível para transformar
+                            momentos em memória.
                         </p>
                         <p class="align-right">
                             <a href="sobre.html" class="ashade-learn-more"
@@ -265,7 +282,7 @@
                     <div class="ashade-widget ashade-widget--contacts">
                         <h5 class="ashade-widget-title">
                             <span>Contato direto</span>
-                            Informa&ccedil;&otilde;es de contato
+                            Informações de contato
                         </h5>
                         <ul class="ashade-contact-details__list">
                             <li>
@@ -324,9 +341,7 @@
         </div>
         <script src="vendor/jquery.min.js" defer></script>
         <script src="vendor/gsap.min.js" defer></script>
-        <script src="vendor/masonry.pkgd.min.js" defer></script>
-        <script src="vendor/photoswipe.min.js" defer></script>
-        <script src="vendor/photoswipe-ui-default.min.js" defer></script>
         <script src="js/main.js" defer></script>
     </body>
 </html>
+

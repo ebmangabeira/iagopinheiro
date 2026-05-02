@@ -610,77 +610,77 @@
                         eyebrow: "Resumo essencial",
                         title: "Termos de Uso",
                         intro: [
-                            "Este site apresenta o portf&oacute;lio, os servi&ccedil;os e os canais de contato do Iago Pinheiro Est&uacute;dio.",
-                            "Ao navegar por aqui, o visitante pode conhecer o trabalho, ver galerias e enviar solicita&ccedil;&otilde;es de atendimento.",
+                            "Este site apresenta o portfólio, os serviços e os canais de contato do Iago Pinheiro Estúdio.",
+                            "Ao navegar por aqui, o visitante pode conhecer o trabalho, ver galerias e enviar solicitações de atendimento.",
                         ],
                         widgets: [
                             {
                                 eyebrow: "Uso permitido",
-                                title: "Navega&ccedil;&atilde;o",
+                                title: "Navegação",
                                 content:
-                                    "<p>O conte&uacute;do do site deve ser usado para consulta de informa&ccedil;&otilde;es, visualiza&ccedil;&atilde;o do portf&oacute;lio e envio de mensagens com dados pr&oacute;prios, corretos e leg&iacute;timos.</p>",
+                                    "<p>O conteúdo do site deve ser usado para consulta de informações, visualização do portfólio e envio de mensagens com dados próprios, corretos e legítimos.</p>",
                             },
                             {
-                                eyebrow: "Conte&uacute;do autoral",
+                                eyebrow: "Conteúdo autoral",
                                 title: "Fotos e identidade",
                                 content:
-                                    "<p>Fotos, v&iacute;deos, textos, marcas e demais elementos visuais pertencem aos seus respectivos titulares. C&oacute;pia, republica&ccedil;&atilde;o, edi&ccedil;&atilde;o, distribui&ccedil;&atilde;o ou uso comercial dependem de autoriza&ccedil;&atilde;o pr&eacute;via.</p>",
+                                    "<p>Fotos, vídeos, textos, marcas e demais elementos visuais pertencem aos seus respectivos titulares. Cópia, republicação, edição, distribuição ou uso comercial dependem de autorização prévia.</p>",
                             },
                             {
                                 eyebrow: "Atendimento",
-                                title: "Solicita&ccedil;&otilde;es",
+                                title: "Solicitações",
                                 content:
-                                    "<p>O envio de formul&aacute;rio ou mensagem pelo site n&atilde;o confirma agenda, contrato, or&ccedil;amento ou reserva autom&aacute;tica. Esses pontos dependem de retorno, alinhamento e confirma&ccedil;&atilde;o direta com o est&uacute;dio.</p>",
+                                    "<p>O envio de formulário ou mensagem pelo site não confirma agenda, contrato, orçamento ou reserva automática. Esses pontos dependem de retorno, alinhamento e confirmação direta com o estúdio.</p>",
                             },
                             {
-                                eyebrow: "Servi&ccedil;os externos",
-                                title: "Links e incorpora&ccedil;&otilde;es",
+                                eyebrow: "Serviços externos",
+                                title: "Links e incorporações",
                                 content:
-                                    "<p>O site pode exibir v&iacute;deos incorporados e links para servi&ccedil;os ou perfis externos. Ao acessar esses recursos, tamb&eacute;m podem valer os termos e pol&iacute;ticas das respectivas plataformas.</p>",
+                                    "<p>O site pode exibir vídeos incorporados e links para serviços ou perfis externos. Ao acessar esses recursos, também podem valer os termos e políticas das respectivas plataformas.</p>",
                             },
                         ],
-                        note: "Vers&atilde;o resumida para orientar o uso do site. O texto pode ser atualizado se novas funcionalidades forem adicionadas.",
+                        note: "Versão resumida para orientar o uso do site. O texto pode ser atualizado se novas funcionalidades forem adicionadas.",
                     },
                     privacy: {
                         eyebrow: "Resumo LGPD",
-                        title: "Pol&iacute;tica de Privacidade",
+                        title: "Política de Privacidade",
                         intro: [
                             "Este aviso explica, de forma simples, como o site trata dados pessoais enviados pelo visitante.",
-                            "O site n&atilde;o utiliza Google Analytics, Meta Pixel, remarketing ou cookies publicit&aacute;rios.",
+                            "O site não utiliza Google Analytics, Meta Pixel, remarketing ou cookies publicitários.",
                         ],
                         widgets: [
                             {
                                 eyebrow: "Dados coletados",
-                                title: "Formul&aacute;rio de contato",
+                                title: "Formulário de contato",
                                 content:
-                                    "<p>Quando o visitante envia uma mensagem pelo formul&aacute;rio, podem ser tratados os dados informados voluntariamente, como nome, e-mail, telefone e conte&uacute;do da mensagem.</p><p>Esses dados s&atilde;o usados apenas para responder ao contato, organizar o atendimento e dar continuidade a solicita&ccedil;&otilde;es comerciais.</p>",
+                                    "<p>Quando o visitante envia uma mensagem pelo formulário, podem ser tratados os dados informados voluntariamente, como nome, e-mail, telefone e conteúdo da mensagem.</p><p>Esses dados são usados apenas para responder ao contato, organizar o atendimento e dar continuidade a solicitações comerciais.</p>",
                             },
                             {
                                 eyebrow: "Finalidades",
-                                title: "Uso das informa&ccedil;&otilde;es",
+                                title: "Uso das informações",
                                 content:
-                                    "<p>As informa&ccedil;&otilde;es podem ser usadas para responder d&uacute;vidas, enviar retornos sobre ensaios e servi&ccedil;os, preparar propostas e manter o hist&oacute;rico necess&aacute;rio do atendimento.</p><p>O site n&atilde;o usa esses dados para publicidade comportamental, remarketing ou cria&ccedil;&atilde;o de audi&ecirc;ncias em plataformas de an&uacute;ncios.</p>",
+                                    "<p>As informações podem ser usadas para responder dúvidas, enviar retornos sobre ensaios e serviços, preparar propostas e manter o histórico necessário do atendimento.</p><p>O site não usa esses dados para publicidade comportamental, remarketing ou criação de audiências em plataformas de anúncios.</p>",
                             },
                             {
-                                eyebrow: "Servi&ccedil;os externos",
-                                title: "Fontes e v&iacute;deos",
+                                eyebrow: "Serviços externos",
+                                title: "Fontes e vídeos",
                                 content:
-                                    "<p>O site pode carregar fontes do Google Fonts e v&iacute;deos incorporados do Vimeo. Esses servi&ccedil;os podem receber dados t&eacute;cnicos necess&aacute;rios para exibir o conte&uacute;do, como endere&ccedil;o IP, navegador e informa&ccedil;&otilde;es da requisi&ccedil;&atilde;o.</p><p>Quando poss&iacute;vel, os v&iacute;deos s&atilde;o configurados em modo de maior privacidade, sem finalidade de an&uacute;ncios ou remarketing por este site.</p>",
+                                    "<p>O site pode carregar fontes do Google Fonts e vídeos incorporados do Vimeo. Esses serviços podem receber dados técnicos necessários para exibir o conteúdo, como endereço IP, navegador e informações da requisição.</p><p>Quando possível, os vídeos são configurados em modo de maior privacidade, sem finalidade de anúncios ou remarketing por este site.</p>",
                             },
                             {
                                 eyebrow: "Cookies",
-                                title: "Sem rastreamento publicit&aacute;rio",
+                                title: "Sem rastreamento publicitário",
                                 content:
-                                    "<p>Este site n&atilde;o utiliza cookies n&atilde;o essenciais para an&aacute;lise, publicidade, Meta Pixel, Google Analytics ou remarketing. Por isso, n&atilde;o exibe banner de consentimento de cookies.</p><p>Servi&ccedil;os externos incorporados podem usar recursos t&eacute;cnicos essenciais para funcionar com seguran&ccedil;a.</p>",
+                                    "<p>Este site não utiliza cookies não essenciais para análise, publicidade, Meta Pixel, Google Analytics ou remarketing. Por isso, não exibe banner de consentimento de cookies.</p><p>Serviços externos incorporados podem usar recursos técnicos essenciais para funcionar com segurança.</p>",
                             },
                             {
                                 eyebrow: "Direitos",
-                                title: "Solicita&ccedil;&otilde;es do titular",
+                                title: "Solicitações do titular",
                                 content:
-                                    "<p>O visitante pode solicitar confirma&ccedil;&atilde;o de tratamento, acesso, corre&ccedil;&atilde;o, atualiza&ccedil;&atilde;o ou exclus&atilde;o de dados pessoais pelos canais de contato exibidos no site.</p><p>Alguns dados podem ser mantidos pelo tempo necess&aacute;rio para cumprir obriga&ccedil;&otilde;es legais, resolver solicita&ccedil;&otilde;es ou proteger direitos do est&uacute;dio e do visitante.</p>",
+                                    "<p>O visitante pode solicitar confirmação de tratamento, acesso, correção, atualização ou exclusão de dados pessoais pelos canais de contato exibidos no site.</p><p>Alguns dados podem ser mantidos pelo tempo necessário para cumprir obrigações legais, resolver solicitações ou proteger direitos do estúdio e do visitante.</p>",
                             },
                         ],
-                        note: "Se no futuro forem adicionados Google Analytics, Meta Pixel, remarketing ou cookies n&atilde;o essenciais, esta pol&iacute;tica deve ser revisada e um banner de consentimento deve ser implementado.",
+                        note: "Se no futuro forem adicionados Google Analytics, Meta Pixel, remarketing ou cookies não essenciais, esta política deve ser revisada e um banner de consentimento deve ser implementado.",
                     },
                 },
                 $modal: t(),
@@ -2002,3 +2002,4 @@
             }));
     }
 })(window, document, window.jQuery);
+

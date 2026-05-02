@@ -7,127 +7,29 @@
             content="width=device-width, initial-scale=1.0"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>In&iacute;cio | Iago Pinheiro Est&uacute;dio</title>
+        <title>Início | Iago Pinheiro Estúdio</title>
+        <meta
+            name="description"
+            content="Fotografia de formaturas, ensaios, eventos e retratos com atendimento por agendamento."
+        />
+        <meta name="theme-color" content="#050505" />
+        <link rel="canonical" href="https://iagopinheiro.com/" />
         <link rel="dns-prefetch" href="//player.vimeo.com" />
         <link rel="dns-prefetch" href="//i.vimeocdn.com" />
         <link rel="dns-prefetch" href="//f.vimeocdn.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preconnect" href="https://player.vimeo.com" />
-        <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin />
-        <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin />
         <link rel="preload" as="image" href="img/bgs/bg-home01.png" />
         <link
             href="https://fonts.googleapis.com/css?family=Montserrat%3A500%2C700%7CRoboto+Condensed:700%7CRoboto%3A700&display=swap"
             rel="stylesheet"
         />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <style>
-            .ashade-home-background {
-                isolation: isolate;
-                overflow: hidden;
-                background: #050505;
-            }
-
-            .ashade-home-background::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                z-index: 2;
-                background:
-                    radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 58%),
-                    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.24));
-                opacity: 0.24;
-                transform: scale(1.02);
-                transition:
-                    opacity 0.85s ease,
-                    transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
-                pointer-events: none;
-            }
-
-            .ashade-home-background__media {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                z-index: 1;
-                width: 100vw;
-                height: 56.25vw;
-                min-width: 177.78vh;
-                min-height: 100vh;
-                border: 0;
-                background: #000;
-                opacity: 0;
-                transition:
-                    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-                    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-                transform: translate3d(-50%, -50%, 0) scale(1.04);
-                pointer-events: none;
-                will-change: opacity, transform;
-                backface-visibility: hidden;
-            }
-
-            .ashade-home-background.is-video-mounted .ashade-home-background__media {
-                opacity: 0.62;
-                transform: translate3d(-50%, -50%, 0) scale(1.01);
-            }
-
-            .ashade-home-background.is-loaded .ashade-home-background__media {
-                opacity: 1;
-                transform: translate3d(-50%, -50%, 0) scale(1);
-            }
-
-            .ashade-home-background.is-loaded::after {
-                opacity: 0.12;
-                transform: scale(1);
-            }
-
-            .ashade-home-background__poster {
-                z-index: 0;
-                opacity: 1;
-                transform: scale(1.02);
-                transition:
-                    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-                    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
-                will-change: opacity, transform;
-            }
-
-            .ashade-home-background.is-loaded .ashade-home-background__poster {
-                opacity: 0;
-                transform: scale(1.08);
-            }
-
-            .ashade-home-background.is-video-mounted .ashade-home-background__poster {
-                transform: scale(1.04);
-            }
-
-            .ashade-home-background:not(.is-loaded) .ashade-home-background__poster {
-                opacity: 1;
-            }
-
-            @media only screen and (max-width: 760px) {
-                .ashade-home-background__media {
-                    max-width: none;
-                    max-height: 100vh;
-                }
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                .ashade-home-background::after,
-                .ashade-home-background__media,
-                .ashade-home-background__poster {
-                    transition: none;
-                }
-
-                .ashade-home-background::after,
-                .ashade-home-background__poster {
-                    transform: none;
-                }
-
-                .ashade-home-background__media {
-                    transform: translate3d(-50%, -50%, 0);
-                }
-            }
-        </style>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="css/style.css"
+            fetchpriority="high"
+        />
         <link rel="icon" href="img/favicon.png" sizes="32x32" />
     </head>
     <body
@@ -142,17 +44,20 @@
                     >
                         <img
                             src="img/iago-logo.png"
-                            alt="Logo"
+                            alt="Iago Pinheiro Estúdio"
                             width="694"
                             height="118"
+                            decoding="async"
                         />
                     </a>
                 </div>
                 <div class="ashade-nav-block">
-                    <nav class="ashade-nav">
+                    <nav class="ashade-nav" aria-label="Menu principal">
                         <ul class="main-menu">
                             <li class="menu-item-has-children">
-                                <a href="index.html">In&iacute;cio</a>
+                                <a href="index.html" aria-current="page"
+                                    >Início</a
+                                >
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="sobre.html">Sobre</a>
@@ -168,7 +73,11 @@
                             </li>
                             <li><a href="contato.html">Contato</a></li>
                             <li>
-                                <a href="#" class="ashade-aside-toggler">
+                                <a
+                                    href="#"
+                                    class="ashade-aside-toggler"
+                                    aria-label="Abrir painel lateral"
+                                >
                                     <span
                                         class="ashade-aside-toggler__icon01"
                                     ></span>
@@ -185,38 +94,44 @@
                 </div>
             </div>
         </header>
-        <div class="ashade-home-background ashade-page-background is-video is-video-mounted">
+        <div
+            class="ashade-home-background ashade-page-background is-video"
+            data-video-src="https://player.vimeo.com/video/1185223574?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1&amp;quality=1080p&amp;api=1"
+            data-video-quality="1080p"
+            data-video-title="Vídeo de fundo do Iago Pinheiro Estúdio"
+        >
             <img
                 class="ashade-home-background__poster"
                 src="img/bgs/bg-home01.png"
                 alt=""
                 aria-hidden="true"
+                width="1920"
+                height="1280"
                 fetchpriority="high"
                 decoding="async"
             />
-            <iframe
-                class="ashade-home-background__media"
-                src="https://player.vimeo.com/video/1185223574?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1"
-                width="1920"
-                height="1080"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                title="iago"
-                aria-hidden="true"
-                tabindex="-1"
-                loading="eager"
-            ></iframe>
         </div>
         <div class="ashade-home-link--works ashade-home-link-wrap">
-            <div class="ashade-home-link is-link">
+            <div
+                class="ashade-home-link is-link"
+                role="button"
+                tabindex="0"
+                aria-controls="ashade-home-works"
+                aria-label="Explorar galeria"
+            >
                 <span>Galeria</span>
                 <span>Explorar Galeria</span>
             </div>
         </div>
         <div class="ashade-home-link--contacts ashade-home-link-wrap">
-            <div class="ashade-home-link is-link">
-                <span>Informa&ccedil;&otilde;es de contato</span>
+            <div
+                class="ashade-home-link is-link"
+                role="button"
+                tabindex="0"
+                aria-controls="ashade-home-contacts"
+                aria-label="Ver informações de contato"
+            >
+                <span>Informações de contato</span>
                 <span>Contato</span>
             </div>
         </div>
@@ -233,7 +148,7 @@
             <div class="ashade-row">
                 <div class="ashade-col col-12">
                     <p class="ashade-intro">
-                        Uma sele&ccedil;&atilde;o objetiva de trabalhos com
+                        Uma seleção objetiva de trabalhos com
                         contatos claros e diretos.
                     </p>
                 </div>
@@ -243,7 +158,7 @@
                     <div class="ashade-contact-details">
                         <h4 class="ashade-contact-details__title">
                             <span>Contato direto</span>
-                            Informa&ccedil;&otilde;es de contato
+                            Informações de contato
                         </h4>
                         <ul class="ashade-contact-details__list">
                             <li>
@@ -289,6 +204,7 @@
                     <form
                         action="mail.php"
                         method="post"
+                        accept-charset="UTF-8"
                         class="ashade-contact-form"
                     >
                         <div class="ashade-row ashade-small-gap">
@@ -298,6 +214,8 @@
                                     id="name"
                                     name="name"
                                     placeholder="Nome"
+                                    autocomplete="name"
+                                    aria-label="Nome"
                                     required
                                 />
                             </div>
@@ -307,6 +225,9 @@
                                     id="email"
                                     name="email"
                                     placeholder="E-mail"
+                                    autocomplete="email"
+                                    inputmode="email"
+                                    aria-label="E-mail"
                                     required
                                 />
                             </div>
@@ -316,6 +237,9 @@
                                     id="phone"
                                     name="phone"
                                     placeholder="Telefone"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                    aria-label="Telefone"
                                     required
                                 />
                             </div>
@@ -324,10 +248,16 @@
                             name="message"
                             id="message"
                             placeholder="Mensagem"
+                            autocomplete="off"
+                            aria-label="Mensagem"
                             required
                         ></textarea>
                         <div class="ashade-contact-form__footer">
-                            <div class="ashade-contact-form__response"></div>
+                            <div
+                                class="ashade-contact-form__response"
+                                aria-live="polite"
+                                aria-atomic="true"
+                            ></div>
                             <div class="ashade-contact-form__submit">
                                 <input type="submit" value="Enviar" />
                             </div>
@@ -340,7 +270,7 @@
             <div class="ashade-row">
                 <div class="ashade-col col-12">
                     <p class="ashade-intro">
-                        Uma sele&ccedil;&atilde;o de ensaios, hist&oacute;rias e
+                        Uma seleção de ensaios, histórias e
                         momentos contados em imagem.
                     </p>
                     <div
@@ -351,6 +281,10 @@
                                 <img
                                     src="img/gallery/formatura/formatura_galeria.webp"
                                     alt="A Grande Conquista"
+                                    width="800"
+                                    height="960"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
@@ -360,54 +294,70 @@
                             <a
                                 href="formatura.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir galeria: A Grande Conquista"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
                             <div class="ashade-album-item__image">
                                 <img
                                     src="img/albums/masonry/album02.png"
-                                    alt="Hist&oacute;rias de Amor"
+                                    alt="Histórias de Amor"
+                                    width="800"
+                                    height="640"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
                                 <span>Casamentos</span>
-                                Hist&oacute;rias de Amor
+                                Histórias de Amor
                             </h5>
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Histórias de Amor"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
                             <div class="ashade-album-item__image">
                                 <img
                                     src="img/albums/masonry/album03.png"
-                                    alt="Ess&ecirc;ncia em Foco"
+                                    alt="Essência em Foco"
+                                    width="800"
+                                    height="960"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
                                 <span>Retratos</span>
-                                Ess&ecirc;ncia em Foco
+                                Essência em Foco
                             </h5>
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Essência em Foco"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
                             <div class="ashade-album-item__image">
                                 <img
                                     src="img/albums/masonry/album05.png"
-                                    alt="Sua Melhor Presen&ccedil;a"
+                                    alt="Sua Melhor Presença"
+                                    width="800"
+                                    height="840"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
                                 <span>Perfil Profissional</span>
-                                Sua Melhor Presen&ccedil;a
+                                Sua Melhor Presença
                             </h5>
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Sua Melhor Presença"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
@@ -415,6 +365,10 @@
                                 <img
                                     src="img/albums/masonry/album04.png"
                                     alt="Momentos que Marcam"
+                                    width="800"
+                                    height="640"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
@@ -424,6 +378,7 @@
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir eventos: Momentos que Marcam"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
@@ -431,6 +386,10 @@
                                 <img
                                     src="img/albums/masonry/album06.png"
                                     alt="Doce Espera"
+                                    width="800"
+                                    height="640"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
@@ -440,22 +399,28 @@
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Doce Espera"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
                             <div class="ashade-album-item__image">
                                 <img
                                     src="img/albums/masonry/album08.png"
-                                    alt="Um Dia Inesquec&iacute;vel"
+                                    alt="Um Dia Inesquecível"
+                                    width="800"
+                                    height="640"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
                                 <span>15 ANOS</span>
-                                Um Dia Inesquec&iacute;vel
+                                Um Dia Inesquecível
                             </h5>
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Um Dia Inesquecível"
                             ></a>
                         </div>
                         <div class="ashade-album-item ashade-grid-item">
@@ -463,6 +428,10 @@
                                 <img
                                     src="img/albums/masonry/album07.png"
                                     alt="Olhares que Contam"
+                                    width="800"
+                                    height="840"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <h5>
@@ -472,6 +441,7 @@
                             <a
                                 href="ensaios.html"
                                 class="ashade-album-item__link"
+                                aria-label="Abrir ensaio: Olhares que Contam"
                             ></a>
                         </div>
                     </div>
@@ -486,7 +456,7 @@
                             href="#"
                             data-legal-open="terms"
                             aria-label="Abrir Termos"
-                            >Termos</a
+                            >Termos de uso</a
                         >
                         <span
                             class="ashade-footer__legal-separator"
@@ -496,8 +466,8 @@
                         <a
                             href="#"
                             data-legal-open="privacy"
-                            aria-label="Abrir Privacidade"
-                            >Privacidade</a
+                            aria-label="Abrir Política de privacidade"
+                            >Política de privacidade</a
                         >
                     </div>
                 </div>
@@ -507,7 +477,9 @@
             </div>
         </footer>
         <aside id="ashade-aside">
-            <a href="#" class="ashade-aside-close">Fechar painel</a>
+            <a href="#" class="ashade-aside-close" aria-label="Fechar painel"
+                >Fechar painel</a
+            >
             <div class="ashade-aside-inner">
                 <div class="ashade-aside-content">
                     <div class="ashade-widget ashade-widget--about">
@@ -515,18 +487,19 @@
                             <img
                                 src="img/general/iago-avatar.webp"
                                 alt="Iago Pinheiro"
+                                width="1080"
+                                height="1080"
                                 loading="lazy"
                                 decoding="async"
                             />
                             <h5>
-                                <span>Est&uacute;dio</span>
+                                <span>Estúdio</span>
                                 Iago Pinheiro
                             </h5>
                         </div>
                         <p>
-                            Registros aut&ecirc;nticos, dire&ccedil;&atilde;o
-                            leve e um olhar sens&iacute;vel para transformar
-                            momentos em mem&oacute;ria.
+                            Registros autênticos, direção leve e um olhar
+                            sensível para transformar momentos em memória.
                         </p>
                         <p class="align-right">
                             <a href="sobre.html" class="ashade-learn-more"
@@ -537,7 +510,7 @@
                     <div class="ashade-widget ashade-widget--contacts">
                         <h5 class="ashade-widget-title">
                             <span>Contato direto</span>
-                            Informa&ccedil;&otilde;es de contato
+                            Informações de contato
                         </h5>
                         <ul class="ashade-contact-details__list">
                             <li>
@@ -598,53 +571,8 @@
         <script src="vendor/jquery.min.js" defer></script>
         <script src="vendor/gsap.min.js" defer></script>
         <script src="vendor/masonry.pkgd.min.js" defer></script>
-        <script src="vendor/photoswipe.min.js" defer></script>
-        <script src="vendor/photoswipe-ui-default.min.js" defer></script>
         <script src="js/main.js" defer></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var hero = document.querySelector(".ashade-home-background");
-                var media = hero
-                    ? hero.querySelector(".ashade-home-background__media")
-                    : null;
-                var mediaLoaded = false;
-                var mediaFailed = false;
-
-                if (!hero || !media) {
-                    return;
-                }
-
-                var showMedia = function () {
-                    if (mediaLoaded || mediaFailed) {
-                        return;
-                    }
-
-                    mediaLoaded = true;
-                    hero.classList.add("is-loaded");
-                };
-
-                hero.classList.add("is-video-mounted");
-
-                media.addEventListener(
-                    "load",
-                    function () {
-                        window.requestAnimationFrame(showMedia);
-                    },
-                    { once: true }
-                );
-
-                window.setTimeout(showMedia, 120);
-
-                media.addEventListener(
-                    "error",
-                    function () {
-                        mediaFailed = true;
-                        hero.classList.remove("is-loaded");
-                        hero.classList.remove("is-video-mounted");
-                    },
-                    { once: true }
-                );
-            });
-        </script>
+        <script src="js/home-background.js" defer></script>
     </body>
 </html>
+
